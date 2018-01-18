@@ -11,6 +11,6 @@ import lombok.Getter;
 public class Settings {
 
     @Parameter(names = "-p", description = "Project name that needs to be solved", required = true)
-    private Projects projects = Projects.FIND_PI;
+    private Projects projects;
 
 }

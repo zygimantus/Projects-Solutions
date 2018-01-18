@@ -1,5 +1,8 @@
 package com.zygimantus.projects.solutions;
 
+import com.zygimantus.projects.solutions.impl.FindESolverImpl;
+import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
+
 /**
  *
  * @author Zygimantus
@@ -20,7 +23,10 @@ public enum Projects {
             "numbers") {
         @Override
         public void solve() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            System.out.println("Solving now");
+
+            FindESolverImpl findESolverImpl = new FindESolverImpl();
+            findESolverImpl.solve();
         }
     };
 

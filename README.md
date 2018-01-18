@@ -10,7 +10,7 @@ TODO: Describe the installation process
  
 Example of how to run the program:
  
-`mvn process-classes exec:java -Dexec.args="-ps FIND_PI"`
+`mvn process-classes exec:java -Dexec.args="-p FIND_PI"`
  
 ## Contributing
  

@@ -1,5 +1,6 @@
-package com.zygimantus.projects.solutions;
+package com.zygimantus.projects.solutions.impl;
 
+import com.zygimantus.projects.solutions.Solver;
 import java.math.BigDecimal;
 import java.util.Scanner;
 

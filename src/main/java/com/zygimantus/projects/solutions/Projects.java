@@ -1,5 +1,6 @@
 package com.zygimantus.projects.solutions;
 
+import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
 
@@ -27,6 +28,16 @@ public enum Projects {
 
             FindESolverImpl findESolverImpl = new FindESolverImpl();
             findESolverImpl.solve();
+        }
+    },
+    FIBONACCI_SEQ("Fibonacci Sequence - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.",
+            "numbers") {
+        @Override
+        public void solve() {
+            System.out.println("Solving now");
+
+            FibonacciSeqSolverImpl solverImpl = new FibonacciSeqSolverImpl();
+            solverImpl.solve();
         }
     };
 

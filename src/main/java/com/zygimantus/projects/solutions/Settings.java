@@ -10,7 +10,7 @@ import lombok.Getter;
 @Getter
 public class Settings {
 
-    @Parameter(names = "-p", description = "Project name that needs to be solved", required = true)
+    @Parameter(names = "-p", description = "Project name that needs to be solved")
     private Projects projects;
 
 }

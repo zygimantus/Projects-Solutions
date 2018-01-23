@@ -1,5 +1,6 @@
 package com.zygimantus.projects.solutions;
 
+import com.zygimantus.projects.solutions.impl.CalculatorSolver;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
@@ -17,29 +18,45 @@ import lombok.Getter;
 @Getter
 public enum Projects {
 
-    FIND_PI("Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.",
+    FIND_PI(
+            "Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.",
             ProjectsCategory.NUMBERS,
             FindPiSolverImpl.class
     ),
-    FIND_E("Find e to the Nth Digit - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.",
+    FIND_E(
+            "Find e to the Nth Digit - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.",
             ProjectsCategory.NUMBERS,
             FindESolverImpl.class
     ),
-    FIBONACCI_SEQ("Fibonacci Sequence - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.",
+    FIBONACCI_SEQ(
+            "Fibonacci Sequence - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.",
             ProjectsCategory.NUMBERS,
             FibonacciSeqSolverImpl.class
     ),
-    PRIME_FACT("Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.",
+    PRIME_FACT(
+            "Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.",
             ProjectsCategory.NUMBERS,
             PrimeFactSolver.class
     ),
-    NEXT_PRIME("Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.",
+    NEXT_PRIME(
+            "Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.",
             ProjectsCategory.NUMBERS,
             NextPrimeSolver.class
     ),
-    FIND_TILE_COST("Find Cost of Tile to Cover W x H Floor - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.",
+    FIND_TILE_COST(
+            "Find Cost of Tile to Cover W x H Floor - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.",
             ProjectsCategory.NUMBERS,
             FindTileCostSolver.class
+    ),
+    MORTAGE_CALC(
+            "Mortgage Calculator - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity, add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).",
+            ProjectsCategory.NUMBERS,
+            FindTileCostSolver.class
+    ),
+    CALCULATOR(
+            "Calculator - A simple calculator to do basic operators. Make it a scientific calculator for added complexity.",
+            ProjectsCategory.NUMBERS,
+            CalculatorSolver.class
     );
 
     private final String description;

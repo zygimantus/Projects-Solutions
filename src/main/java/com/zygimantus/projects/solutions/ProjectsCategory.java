@@ -13,7 +13,9 @@ public enum ProjectsCategory {
         Projects.FIND_PI,
         Projects.FIND_E,
         Projects.FIBONACCI_SEQ,
-        Projects.PRIME_FACT,});
+        Projects.PRIME_FACT,
+        Projects.NEXT_PRIME,
+    });
 
     private final String code;
     private final Projects[] projects;

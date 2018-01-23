@@ -3,6 +3,7 @@ package com.zygimantus.projects.solutions;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
+import com.zygimantus.projects.solutions.impl.PrimeFactSolver;
 import lombok.Getter;
 
 /**
@@ -39,6 +40,16 @@ public enum Projects {
             System.out.println("Solving now");
 
             FibonacciSeqSolverImpl solverImpl = new FibonacciSeqSolverImpl();
+            solverImpl.solve();
+        }
+    },
+    PRIME_FACT("Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.",
+            ProjectsCategory.NUMBERS) {
+        @Override
+        public void solve() {
+            System.out.println("Solving now");
+
+            PrimeFactSolver solverImpl = new PrimeFactSolver();
             solverImpl.solve();
         }
     };

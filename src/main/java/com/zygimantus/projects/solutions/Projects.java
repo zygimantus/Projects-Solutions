@@ -3,6 +3,7 @@ package com.zygimantus.projects.solutions;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
+import com.zygimantus.projects.solutions.impl.FindTileCostSolver;
 import com.zygimantus.projects.solutions.impl.NextPrimeSolver;
 import com.zygimantus.projects.solutions.impl.PrimeFactSolver;
 import java.util.logging.Level;
@@ -35,6 +36,10 @@ public enum Projects {
     NEXT_PRIME("Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.",
             ProjectsCategory.NUMBERS,
             NextPrimeSolver.class
+    ),
+    FIND_TILE_COST("Find Cost of Tile to Cover W x H Floor - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.",
+            ProjectsCategory.NUMBERS,
+            FindTileCostSolver.class
     );
 
     private final String description;

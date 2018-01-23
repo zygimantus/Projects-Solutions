@@ -15,7 +15,7 @@ public enum ProjectsCategory {
         Projects.FIBONACCI_SEQ,
         Projects.PRIME_FACT,
         Projects.NEXT_PRIME,
-    });
+        Projects.FIND_TILE_COST,});
 
     private final String code;
     private final Projects[] projects;

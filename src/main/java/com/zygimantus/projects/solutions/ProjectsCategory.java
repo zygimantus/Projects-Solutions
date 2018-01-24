@@ -15,7 +15,10 @@ public enum ProjectsCategory {
         Projects.FIBONACCI_SEQ,
         Projects.PRIME_FACT,
         Projects.NEXT_PRIME,
-        Projects.FIND_TILE_COST,});
+        Projects.FIND_COST_OF_TILE,
+        Projects.MORTAGE_CALC,
+        Projects.CALCULATOR,
+    });
 
     private final String code;
     private final Projects[] projects;

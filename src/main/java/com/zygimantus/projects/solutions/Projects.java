@@ -7,6 +7,10 @@ import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindTileCostSolver;
 import com.zygimantus.projects.solutions.impl.NextPrimeSolver;
 import com.zygimantus.projects.solutions.impl.PrimeFactSolver;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import lombok.Getter;
@@ -19,53 +23,60 @@ import lombok.Getter;
 public enum Projects {
 
     FIND_PI(
-            "Find PI to the Nth Digit - Enter a number and have the program generate PI up to that many decimal places. Keep a limit to how far the program will go.",
+            "Find PI to the Nth Digit",
             ProjectsCategory.NUMBERS,
             FindPiSolverImpl.class
     ),
     FIND_E(
-            "Find e to the Nth Digit - Just like the previous problem, but with e instead of PI. Enter a number and have the program generate e up to that many decimal places. Keep a limit to how far the program will go.",
+            "Find e to the Nth Digit",
             ProjectsCategory.NUMBERS,
             FindESolverImpl.class
     ),
     FIBONACCI_SEQ(
-            "Fibonacci Sequence - Enter a number and have the program generate the Fibonacci sequence to that number or to the Nth number.",
+            "Fibonacci Sequence",
             ProjectsCategory.NUMBERS,
             FibonacciSeqSolverImpl.class
     ),
     PRIME_FACT(
-            "Prime Factorization - Have the user enter a number and find all Prime Factors (if there are any) and display them.",
+            "Prime Factorization",
             ProjectsCategory.NUMBERS,
             PrimeFactSolver.class
     ),
     NEXT_PRIME(
-            "Next Prime Number - Have the program find prime numbers until the user chooses to stop asking for the next one.",
+            "Next Prime Number",
             ProjectsCategory.NUMBERS,
             NextPrimeSolver.class
     ),
-    FIND_TILE_COST(
-            "Find Cost of Tile to Cover W x H Floor - Calculate the total cost of tile it would take to cover a floor plan of width and height, using a cost entered by the user.",
+    FIND_COST_OF_TILE(
+            "Find Cost of Tile to Cover W x H Floor",
             ProjectsCategory.NUMBERS,
             FindTileCostSolver.class
     ),
     MORTAGE_CALC(
-            "Mortgage Calculator - Calculate the monthly payments of a fixed term mortgage over given Nth terms at a given interest rate. Also figure out how long it will take the user to pay back the loan. For added complexity, add an option for users to select the compounding interval (Monthly, Weekly, Daily, Continually).",
+            "Mortgage Calculator",
             ProjectsCategory.NUMBERS,
             FindTileCostSolver.class
     ),
     CALCULATOR(
-            "Calculator - A simple calculator to do basic operators. Make it a scientific calculator for added complexity.",
+            "Calculator",
+            ProjectsCategory.NUMBERS,
+            CalculatorSolver.class
+    ),
+    UNIT_CONV(
+            "Unit Converter (temp, currency, volume, mass and more)",
             ProjectsCategory.NUMBERS,
             CalculatorSolver.class
     );
 
-    private final String description;
+    private final String title;
     private final ProjectsCategory category;
     private final Class<? extends Solver> solverClass;
 
-    private Projects(String description, ProjectsCategory category,
+    private String description;
+
+    private Projects(String title, ProjectsCategory category,
             Class solver) {
-        this.description = description;
+        this.title = title;
         this.category = category;
         this.solverClass = solver;
     }
@@ -78,5 +89,24 @@ public enum Projects {
         } catch (InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Projects.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public String getDescription() {
+        ClassLoader classLoader = Projects.class.getClassLoader();
+        File file = new File(classLoader.getResource("descriptions.txt").getFile());
+        String line;
+        String cvsSplitBy = " - ";
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(cvsSplitBy);
+                if (this.getTitle().equals(parts[0])) {
+                    return parts[1];
+                }
+            }
+
+        } catch (IOException e) {
+        }
+        return "(description is not available)";
+
     }
 }

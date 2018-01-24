@@ -3,6 +3,8 @@ package com.zygimantus.projects.solutions;
 import com.beust.jcommander.JCommander;
 import java.util.Optional;
 import java.util.Scanner;
+import org.beryx.textio.TextIO;
+import org.beryx.textio.TextIoFactory;
 
 /**
  *
@@ -22,32 +24,13 @@ public class Main {
 
         run(Optional.ofNullable(settings.getProjects()).orElseGet(() -> {
 
-            Projects p = null;
             Scanner console = new Scanner(System.in);
             boolean correct = false;
 
-            System.out.println("Below are the list of projects that can be solved:");
+            TextIO textIO = TextIoFactory.getTextIO();
 
-            // list of all Projects
-            for (ProjectsCategory pc : ProjectsCategory.values()) {
-                System.out.println("== " + pc + " ==");
-                Projects[] projects = pc.getProjects();
-                for (int i = 0; i < projects.length; i++) {
-                    System.out.println(i + ") [" + projects[i].name() + "] - " + projects[i].getDescription());
-                }
-            }
-
-            do {
-                System.out.print("Enter a code for a problem (project) to be solved: ");
-                String value = console.nextLine();
-                System.out.println();
-                try {
-                    p = Projects.valueOf(value);
-                    correct = true;
-                } catch (IllegalArgumentException ex) {
-                    System.out.println("Illegal code was entered, please try again!");
-                }
-            } while (!correct);
+            Projects p = textIO.newEnumInputReader(Projects.class)
+                    .read("Which project you want to do?");
 
             return p;
         }));

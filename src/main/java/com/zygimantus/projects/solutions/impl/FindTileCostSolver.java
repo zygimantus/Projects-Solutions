@@ -9,10 +9,10 @@ import java.util.Scanner;
  *
  * @author Zygimantus
  */
-public class FindTileCostSolver extends Solver {
+public class FindTileCostSolver implements Solver {
 
     @Override
-    public void solve() {
+    public Void apply(Void t) {
 
         // see: https://github.com/tiikeri/all-java/blob/master/floor.java
         String dimensions;
@@ -39,6 +39,7 @@ public class FindTileCostSolver extends Solver {
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(lc);
         System.out.println("You would have to buy " + z + " tiles, which would total " + currencyFormatter.format(v) + ".");
 
+        return null;
     }
 
 }

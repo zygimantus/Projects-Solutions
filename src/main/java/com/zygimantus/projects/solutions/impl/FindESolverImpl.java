@@ -2,33 +2,31 @@ package com.zygimantus.projects.solutions.impl;
 
 import com.zygimantus.projects.solutions.Solver;
 import java.math.BigDecimal;
-import java.util.Scanner;
+import org.beryx.textio.TextIO;
+import org.beryx.textio.TextIoFactory;
 
 /**
  *
  * @author Zygimantus
  */
-public class FindESolverImpl extends Solver {
+public class FindESolverImpl implements Solver {
 
     public static BigDecimal e = BigDecimal.ZERO;
 
     public void solution1() {
-        System.out.println("How many digits of e");
 
-        Scanner scanner = new Scanner(System.in);
-        final int scale = Integer.parseInt(scanner.nextLine());
+        TextIO textIO = TextIoFactory.getTextIO();
 
-        e = (new BigDecimal(Math.E)).setScale(scale, BigDecimal.ROUND_HALF_UP);
+        int digits = textIO.newIntInputReader().read("How many digits of e");
+        e = (new BigDecimal(Math.E)).setScale(digits, BigDecimal.ROUND_HALF_UP);
 
-        System.out.println("e: " + e);
+        textIO.getTextTerminal().printf("e: %s", e);
     }
 
     @Override
-    public void solve() {
-
-        // 
+    public Void apply(Void t) {
         solution1();
-        //
+        return null;
     }
 
 }

@@ -7,12 +7,12 @@ import java.util.Scanner;
  *
  * @author Zygimantus
  */
-public class FibonacciSeqSolverImpl extends Solver {
+public class FibonacciSeqSolverImpl implements Solver {
 
     public static int numberOf;
 
     @Override
-    public void solve() {
+    public Void apply(Void t) {
         System.out.println("Enter the number to that Fibonacci sequence is generated: ");
 
         Scanner input = new Scanner(System.in);
@@ -24,6 +24,7 @@ public class FibonacciSeqSolverImpl extends Solver {
             }
             System.out.println();
         }
+        return null;
     }
 
     protected static int fibonacciSeq(int index) {

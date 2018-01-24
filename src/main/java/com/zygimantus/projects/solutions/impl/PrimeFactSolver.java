@@ -7,10 +7,10 @@ import java.util.Scanner;
  *
  * @author Zygimantus
  */
-public class PrimeFactSolver extends Solver {
+public class PrimeFactSolver implements Solver {
 
     @Override
-    public void solve() {
+    public Void apply(Void t) {
 
         int num = 0;
         Scanner scan = new Scanner(System.in);
@@ -22,6 +22,7 @@ public class PrimeFactSolver extends Solver {
         primeFactors(num);
 
         System.out.println();
+        return null;
     }
 
     // see: https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/

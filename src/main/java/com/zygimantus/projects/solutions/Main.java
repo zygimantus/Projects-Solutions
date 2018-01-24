@@ -2,7 +2,6 @@ package com.zygimantus.projects.solutions;
 
 import com.beust.jcommander.JCommander;
 import java.util.Optional;
-import java.util.Scanner;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 
@@ -11,6 +10,8 @@ import org.beryx.textio.TextIoFactory;
  * @author Zygimantus
  */
 public class Main {
+
+    public static TextIO textIO = TextIoFactory.getTextIO();
 
     public static void main(String[] args) {
 
@@ -22,23 +23,18 @@ public class Main {
                 .build()
                 .parse(args);
 
-        run(Optional.ofNullable(settings.getProjects()).orElseGet(() -> {
+        Optional.ofNullable(settings.getProjects()).orElseGet(() -> {
 
-            Scanner console = new Scanner(System.in);
-            boolean correct = false;
+            Projects p;
+            do {
+                p = textIO.newEnumInputReader(Projects.class)
+                        .read("\nWhich project you want to do?");
 
-            TextIO textIO = TextIoFactory.getTextIO();
-
-            Projects p = textIO.newEnumInputReader(Projects.class)
-                    .read("Which project you want to do?");
+                p.solve();
+            } while (!p.equals(Projects.EXIT));
 
             return p;
-        }));
+        });
     }
 
-    public static void run(Projects projects) {
-        System.out.println("Running: " + projects);
-        projects.solve();
-        System.out.println("Solved: " + projects);
-    }
 }

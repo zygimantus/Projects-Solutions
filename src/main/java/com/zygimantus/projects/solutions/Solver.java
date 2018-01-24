@@ -1,10 +1,11 @@
 package com.zygimantus.projects.solutions;
 
+import java.util.function.Function;
+
 /**
  *
  * @author Zygimantus
  */
-public abstract class Solver {
+public interface Solver extends Function<Void, Void> {
 
-    public abstract void solve();
 }

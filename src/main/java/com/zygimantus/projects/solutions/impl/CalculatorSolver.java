@@ -6,14 +6,15 @@ import com.zygimantus.projects.solutions.Solver;
  *
  * @author Zygimantus
  */
-public class CalculatorSolver extends Solver {
+public class CalculatorSolver implements Solver {
 
     @Override
-    public void solve() {
+    public Void apply(Void t) {
 
         Calculator calculator = new Calculator();
         calculator.setVisible(true);
 
+        return null;
     }
 
 }

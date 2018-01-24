@@ -7,10 +7,10 @@ import java.util.Scanner;
  *
  * @author Zygimantus
  */
-public class NextPrimeSolver extends Solver {
+public class NextPrimeSolver implements Solver {
 
     @Override
-    public void solve() {
+    public Void apply(Void t) {
 
         int number = 1;
         Scanner scan = new Scanner(System.in);
@@ -46,6 +46,7 @@ public class NextPrimeSolver extends Solver {
 
         System.out.println();
 
+        return null;
     }
 
 }

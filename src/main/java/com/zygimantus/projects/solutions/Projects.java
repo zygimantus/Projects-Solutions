@@ -11,8 +11,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lombok.Getter;
 
 /**
@@ -25,70 +23,73 @@ public enum Projects {
     FIND_PI(
             "Find PI to the Nth Digit",
             ProjectsCategory.NUMBERS,
-            FindPiSolverImpl.class
+            new FindPiSolverImpl()
     ),
     FIND_E(
             "Find e to the Nth Digit",
             ProjectsCategory.NUMBERS,
-            FindESolverImpl.class
+            new FindESolverImpl()
     ),
     FIBONACCI_SEQ(
             "Fibonacci Sequence",
             ProjectsCategory.NUMBERS,
-            FibonacciSeqSolverImpl.class
+            new FibonacciSeqSolverImpl()
     ),
     PRIME_FACT(
             "Prime Factorization",
             ProjectsCategory.NUMBERS,
-            PrimeFactSolver.class
+            new PrimeFactSolver()
     ),
     NEXT_PRIME(
             "Next Prime Number",
             ProjectsCategory.NUMBERS,
-            NextPrimeSolver.class
+            new NextPrimeSolver()
     ),
     FIND_COST_OF_TILE(
             "Find Cost of Tile to Cover W x H Floor",
             ProjectsCategory.NUMBERS,
-            FindTileCostSolver.class
+            new FindTileCostSolver()
     ),
     MORTAGE_CALC(
             "Mortgage Calculator",
             ProjectsCategory.NUMBERS,
-            FindTileCostSolver.class
+            new FindTileCostSolver()
     ),
     CALCULATOR(
             "Calculator",
             ProjectsCategory.NUMBERS,
-            CalculatorSolver.class
+            new CalculatorSolver()
     ),
     UNIT_CONV(
             "Unit Converter (temp, currency, volume, mass and more)",
             ProjectsCategory.NUMBERS,
-            CalculatorSolver.class
+            new CalculatorSolver()
+    ),
+    // placeholder for exit
+    EXIT(
+            "Exit",
+            null,
+            (t) -> {
+                System.exit(0);
+                return null;
+            }
     );
 
     private final String title;
     private final ProjectsCategory category;
-    private final Class<? extends Solver> solverClass;
+    private final Solver solver;
 
     private String description;
 
     private Projects(String title, ProjectsCategory category,
-            Class solver) {
+            Solver solver) {
         this.title = title;
         this.category = category;
-        this.solverClass = solver;
+        this.solver = solver;
     }
 
     public void solve() {
-
-        try {
-            Solver solver = solverClass.newInstance();
-            solver.solve();
-        } catch (InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(Projects.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        solver.apply(null);
     }
 
     public String getDescription() {
@@ -100,13 +101,13 @@ public enum Projects {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(cvsSplitBy);
                 if (this.getTitle().equals(parts[0])) {
-                    return parts[1];
+                    this.description = parts[1];
                 }
             }
 
         } catch (IOException e) {
         }
-        return "(description is not available)";
-
+        this.description = "(description is not available)";
+        return this.description;
     }
 }

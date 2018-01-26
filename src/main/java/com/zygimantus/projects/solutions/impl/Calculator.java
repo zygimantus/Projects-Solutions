@@ -16,7 +16,7 @@ import javax.swing.border.*;
 class Calculator extends JFrame implements ActionListener {
 
     private static final int FRAME_WIDTH = 300;
-    private static final int FRAME_HEIGHT = 220;
+    private static final int FRAME_HEIGHT = 300;
     private static final int FRAME_X = 150;
     private static final int FRAME_Y = 100;
 

@@ -4,6 +4,9 @@ import com.beust.jcommander.JCommander;
 import java.util.Optional;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
+import org.beryx.textio.TextTerminal;
+import org.beryx.textio.jline.JLineTextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
 
 /**
  *
@@ -27,6 +30,8 @@ public class Main {
 
             Projects p;
             do {
+                TextTerminal terminal = textIO.getTextTerminal();
+                clearScreen(terminal);
                 p = textIO.newEnumInputReader(Projects.class)
                         .read("\nWhich project you want to do?");
 
@@ -35,6 +40,14 @@ public class Main {
 
             return p;
         });
+    }
+
+    public static void clearScreen(TextTerminal terminal) {
+        if (terminal instanceof JLineTextTerminal) {
+            terminal.print("\033[H\033[2J");
+        } else if (terminal instanceof SwingTextTerminal) {
+            ((SwingTextTerminal) terminal).resetToOffset(0);
+        }
     }
 
 }

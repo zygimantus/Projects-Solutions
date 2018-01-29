@@ -5,7 +5,12 @@ import java.util.function.Function;
 import javax.measure.Measure;
 import javax.measure.converter.UnitConverter;
 import static javax.measure.unit.NonSI.FAHRENHEIT;
+import static javax.measure.unit.NonSI.GALLON_UK;
+import static javax.measure.unit.NonSI.LITRE;
+import static javax.measure.unit.NonSI.MILE;
 import static javax.measure.unit.NonSI.RANKINE;
+import static javax.measure.unit.SI.KILOMETER;
+import javax.measure.unit.Unit;
 import lombok.Getter;
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
@@ -34,24 +39,29 @@ public class UnitConvSolver implements Solver {
     @Getter
     public enum Convertion {
         RANKINE_TO_FAHRENHEIT(
-                (Long longValue) -> {
-                    UnitConverter toFahrenheit = RANKINE.getConverterTo(FAHRENHEIT);
-                    double fahrenheits = toFahrenheit.convert(Measure.valueOf(longValue, RANKINE).doubleValue(RANKINE));
-
-                    return fahrenheits;
-                }),
+                (longValue) -> convertUsingJavaxMeasureConverter(RANKINE, FAHRENHEIT, longValue)),
         FAHRENHEIT_TO_RANKINE(
-                (Long longValue) -> {
-                    UnitConverter toRankine = FAHRENHEIT.getConverterTo(RANKINE);
-                    double rankines = toRankine.convert(Measure.valueOf(longValue, RANKINE).doubleValue(RANKINE));
-
-                    return rankines;
-                });
+                (longValue) -> convertUsingJavaxMeasureConverter(FAHRENHEIT, RANKINE, longValue)),
+        MILES_TO_KILOMETERS(
+                (longValue) -> convertUsingJavaxMeasureConverter(MILE, KILOMETER, longValue)),
+        KILOMETERS_TO_MILES(
+                (longValue) -> convertUsingJavaxMeasureConverter(KILOMETER, MILE, longValue)),
+        GALLON_UK_TO_LITRE(
+                (longValue) -> convertUsingJavaxMeasureConverter(GALLON_UK, LITRE, longValue)),
+        LITRE_TO_GALLON_UK(
+                (longValue) -> convertUsingJavaxMeasureConverter(LITRE, GALLON_UK, longValue));
 
         private final Function<Long, Double> funtion;
 
         private Convertion(Function<Long, Double> funtion) {
             this.funtion = funtion;
+        }
+
+        private static double convertUsingJavaxMeasureConverter(Unit unitFrom, Unit unitTo, Long longValue) {
+            UnitConverter toRankine = unitFrom.getConverterTo(unitTo);
+            double answer = toRankine.convert(Measure.valueOf(longValue, unitFrom).doubleValue(unitFrom));
+
+            return answer;
         }
     }
 

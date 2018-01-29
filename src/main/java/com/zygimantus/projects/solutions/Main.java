@@ -30,11 +30,10 @@ public class Main {
 
             Projects p;
             do {
-                TextTerminal terminal = textIO.getTextTerminal();
-                clearScreen(terminal);
+//                TextTerminal terminal = textIO.getTextTerminal();
+//                clearScreen(terminal);
                 p = textIO.newEnumInputReader(Projects.class)
                         .read("\nWhich project you want to do?");
-
                 p.solve();
             } while (!p.equals(Projects.EXIT));
 

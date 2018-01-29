@@ -7,6 +7,7 @@ import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindTileCostSolver;
 import com.zygimantus.projects.solutions.impl.NextPrimeSolver;
 import com.zygimantus.projects.solutions.impl.PrimeFactSolver;
+import com.zygimantus.projects.solutions.impl.UnitConvSolver;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -63,7 +64,7 @@ public enum Projects {
     UNIT_CONV(
             "Unit Converter (temp, currency, volume, mass and more)",
             ProjectsCategory.NUMBERS,
-            new CalculatorSolver()
+            new UnitConvSolver()
     ),
     // placeholder for exit
     EXIT(

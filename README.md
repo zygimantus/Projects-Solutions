@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/zygimantus/Projects-Solutions.svg?branch=master)](https://travis-ci.org/zygimantus/Projects-Solutions)
+
 # Projects-Solutions
  
 This project contains solutions written in Java language for [Projects](https://github.com/thekarangoel/Projects).

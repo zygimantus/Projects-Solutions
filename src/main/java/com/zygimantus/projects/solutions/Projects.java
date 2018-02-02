@@ -1,6 +1,8 @@
 package com.zygimantus.projects.solutions;
 
+import com.zygimantus.projects.solutions.impl.AlarmClockSolver;
 import com.zygimantus.projects.solutions.impl.CalculatorSolver;
+import com.zygimantus.projects.solutions.impl.DistanceBetweenTwoCitiesSolver;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
@@ -65,6 +67,16 @@ public enum Projects {
             "Unit Converter (temp, currency, volume, mass and more)",
             ProjectsCategory.NUMBERS,
             new UnitConvSolver()
+    ),
+    ALARM_CLOCK(
+            "Alarm Clock",
+            ProjectsCategory.NUMBERS,
+            new AlarmClockSolver()
+    ),
+    DISTANCE_BETWEEN_TWO_CITIES(
+            "Distance Between Two Cities",
+            ProjectsCategory.NUMBERS,
+            new DistanceBetweenTwoCitiesSolver()
     ),
     // placeholder for exit
     EXIT(

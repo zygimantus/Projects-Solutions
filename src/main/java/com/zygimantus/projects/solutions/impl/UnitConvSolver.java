@@ -7,7 +7,9 @@ import javax.measure.converter.UnitConverter;
 import static javax.measure.unit.NonSI.FAHRENHEIT;
 import static javax.measure.unit.NonSI.GALLON_UK;
 import static javax.measure.unit.NonSI.LITRE;
+import static javax.measure.unit.NonSI.METRIC_TON;
 import static javax.measure.unit.NonSI.MILE;
+import static javax.measure.unit.NonSI.POUND;
 import static javax.measure.unit.NonSI.RANKINE;
 import static javax.measure.unit.SI.KILOMETER;
 import javax.measure.unit.Unit;
@@ -49,7 +51,11 @@ public class UnitConvSolver implements Solver {
         GALLON_UK_TO_LITRE(
                 (longValue) -> convertUsingJavaxMeasureConverter(GALLON_UK, LITRE, longValue)),
         LITRE_TO_GALLON_UK(
-                (longValue) -> convertUsingJavaxMeasureConverter(LITRE, GALLON_UK, longValue));
+                (longValue) -> convertUsingJavaxMeasureConverter(LITRE, GALLON_UK, longValue)),
+        METRIC_TON_TO_POUND(
+                (longValue) -> convertUsingJavaxMeasureConverter(METRIC_TON, POUND, longValue)),
+        POUND_TO_METRIC_TON(
+                (longValue) -> convertUsingJavaxMeasureConverter(POUND, METRIC_TON, longValue));
 
         private final Function<Long, Double> funtion;
 

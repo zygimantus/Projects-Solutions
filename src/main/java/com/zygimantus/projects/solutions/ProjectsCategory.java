@@ -18,6 +18,9 @@ public enum ProjectsCategory {
         Projects.FIND_COST_OF_TILE,
         Projects.MORTAGE_CALC,
         Projects.CALCULATOR,
+        Projects.UNIT_CONV,
+        Projects.ALARM_CLOCK,
+        Projects.DISTANCE_BETWEEN_TWO_CITIES,
     });
 
     private final String code;

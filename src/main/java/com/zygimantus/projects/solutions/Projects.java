@@ -2,6 +2,7 @@ package com.zygimantus.projects.solutions;
 
 import com.zygimantus.projects.solutions.impl.AlarmClockSolver;
 import com.zygimantus.projects.solutions.impl.CalculatorSolver;
+import com.zygimantus.projects.solutions.impl.CreditCardValidatorSolver;
 import com.zygimantus.projects.solutions.impl.DistanceBetweenTwoCitiesSolver;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
@@ -77,6 +78,11 @@ public enum Projects {
             "Distance Between Two Cities",
             ProjectsCategory.NUMBERS,
             new DistanceBetweenTwoCitiesSolver()
+    ),
+    CREDIT_CARD_VALIDATOR(
+            "Credit Card Validator",
+            ProjectsCategory.NUMBERS,
+            new CreditCardValidatorSolver()
     ),
     // placeholder for exit
     EXIT(

@@ -4,6 +4,7 @@ import com.zygimantus.projects.solutions.impl.AlarmClockSolver;
 import com.zygimantus.projects.solutions.impl.CalculatorSolver;
 import com.zygimantus.projects.solutions.impl.CreditCardValidatorSolver;
 import com.zygimantus.projects.solutions.impl.DistanceBetweenTwoCitiesSolver;
+import com.zygimantus.projects.solutions.impl.FactorialFinderSolver;
 import com.zygimantus.projects.solutions.impl.FibonacciSeqSolverImpl;
 import com.zygimantus.projects.solutions.impl.FindESolverImpl;
 import com.zygimantus.projects.solutions.impl.FindPiSolverImpl;
@@ -83,6 +84,16 @@ public enum Projects {
             "Credit Card Validator",
             ProjectsCategory.NUMBERS,
             new CreditCardValidatorSolver()
+    ),
+    TAX_CALCULATOR(
+            "Tax Calculator",
+            ProjectsCategory.NUMBERS,
+            new CreditCardValidatorSolver()
+    ),
+    FACTORIAL_FINDER(
+            "Factorial Finder",
+            ProjectsCategory.NUMBERS,
+            new FactorialFinderSolver()
     ),
     // placeholder for exit
     EXIT(
